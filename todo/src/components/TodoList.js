@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addTodo, deleteTodo, toggleTodo } from '../actions';
+import { addTodo, deleteTodo, toggleTodo, clearCompleted } from '../actions';
 
 class TodoList extends React.Component {
 	constructor() {
@@ -46,6 +46,7 @@ class TodoList extends React.Component {
 					/>
 					<button>Add ToDo</button>
 				</form>
+				<button onClick={this.props.clearCompleted}>Clear Completed</button>
 			</div>
 		);
 	}
@@ -57,4 +58,4 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default connect(mapStateToProps, { addTodo, deleteTodo, toggleTodo })(TodoList);
+export default connect(mapStateToProps, { addTodo, deleteTodo, toggleTodo, clearCompleted })(TodoList);
